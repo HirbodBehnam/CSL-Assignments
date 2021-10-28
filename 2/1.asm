@@ -57,13 +57,25 @@ LOAD_NUMBERS:
 	# If not continue execution
 LOAD_NUMBERS_A_FIRST:
 	add $v0, $zero, $t1 # v0 = a
-	add $v1, $zero, $t2 # v1 = b
-	jr $ra
+	j LOAD_FIRST_NUMBER_DONE
 	
 LOAD_NUMBERS_B_FIRST:
 	add $v0, $zero, $t2 # v0 = b
+	j LOAD_FIRST_NUMBER_DONE
+	
+LOAD_FIRST_NUMBER_DONE:
+	la $t0, input # Load the address of input string
+	lbu $t0, 2($t0) # Load the first character in t0
+	beq $t0, 'b', LOAD_NUMBERS_B_SECOND # If the first number is b jump to that number
+	# If not continue execution
+LOAD_NUMBERS_A_SECOND:
 	add $v1, $zero, $t1 # v1 = a
 	jr $ra
+	
+LOAD_NUMBERS_B_SECOND:
+	add $v1, $zero, $t2 # v1 = b
+	jr $ra
+	
 	
 PRINT_BOOL:
 	# Print bool simply prints either true of false based on input
