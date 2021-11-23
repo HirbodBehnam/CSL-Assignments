@@ -95,6 +95,6 @@ PRINT_BOOL_FALSE:
 .data
 true:	.asciiz "true\n"
 false:	.asciiz "false\n"
-a_num:	.word 5
-b_num:	.word 10
+a_num:	.word 6
+b_num:	.word 8
 input:	.space 4 # 4 bytes for input (3+null)

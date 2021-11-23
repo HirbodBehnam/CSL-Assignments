@@ -1,0 +1,27 @@
+\smalltitle{سوال 1}\\
+\smalltitle{الف)}
+\codesample{codes/1-1.asm}
+\smalltitle{ب)}
+\codesample{codes/1-2.asm}
+\smalltitle{ج)}
+\codesample{codes/1-3.asm}
+\smalltitle{د)}
+در ابتدا عبارت را به صورت
+postfix
+می‌نویسیم.
+برای این کار عبارت را به صورت خطی و بدون خط کسری می‌نویسیم:
+\begin{equation*}
+    a / (b + c) + d / (a + d) - (a + d) / e
+\end{equation*}
+سپس می‌توانیم از دانش ساختمان داده، به کمک یک
+stack
+عبارت postfix را بنویسیم.
+\begin{equation*}
+    a b c + / d a d + / + a d + e / -
+\end{equation*}
+در نهایت عبارت را از چپ به راست می‌خوانیم. هر جا که متغیر دیدیدم آنرا به در استک
+push
+می‌کنیم. وقتی که به عملگرد می‌رسیم آنرا اجرا می‌کنیم و در نهایت جواب نهایی را
+pop
+می‌کنیم.
+\codesample{codes/1-4.asm}

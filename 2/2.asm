@@ -27,6 +27,11 @@
 	add $a2, $zero, $s2
 	add $a3, $zero, $s3
 	jal STANDARD
+	# Print the array
+	add $a0, $zero, $s0
+	add $a1, $zero, $s1
+	jal PRINT_ARRAY
+	jal PRINT_NEW_LINE
 	# Goodbye
 	addi $v0, $zero, 10
 	syscall
@@ -152,5 +157,23 @@ STANDARD_DONE:
 	# We already have the pointer in v0
 	jr $ra
 	
+PRINT_ARRAY:
+	add $t9, $zero, $zero # Initialize loop counter in t9
+	add $t8, $zero, $a0 # Also initialize a pointer for reading variables
+PRINT_ARRAY_LOOP:
+	beq $t9, $a1, PRINT_ARRAY_DONE
+	lwc1 $f12, 0($t8) # Load the number
+	addi $v0, $zero, 2
+	syscall
+	la $a0, space
+	li $v0, 4
+	syscall
+	addi $t9, $t9, 1 # Increase loop counter
+	addi $t8, $t8, 4 # Increase pointer position
+	j PRINT_ARRAY_LOOP
+PRINT_ARRAY_DONE:
+	jr $ra
+
 .data
 newline:	.asciiz "\n"
+space:		.asciiz " "

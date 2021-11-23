@@ -1,0 +1,30 @@
+\\
+\linebreak
+\smalltitle{سوال 3}
+\makeatletter
+\newcommand{\xslalph}[1]{\expandafter\@xslalph\csname c@#1\endcsname}
+\newcommand{\@xslalph}[1]{%
+    \ifcase#1\or a\or b\or c\or d\or e\or f\or g\or h\or i%
+    \or j\or k\or l\or m\or n\or o\or p\or q\or r\or s\or%
+    \or t\or u\or v\or w\or x\or y\or z%
+    \else\@ctrerr\fi%
+}
+\AddEnumerateCounter{\xslalph}{\@xslalph}{m}
+\makeatother
+\begin{latin}
+\begin{enumerate}[label=\xslalph*)]
+    \item $R1 \times 100 = 991 \times 100 = 991000$
+    \item $R1 + R2 = 991 + 713 = 1704$
+    \item $R1 - M[FGH] = R1 - EDE = 991 - 171 = 820$
+    \item $R1 \times M[100] = 991 \times 200 = 198200$
+    \item $R1 - M[M[102]] = R1 - M[ABC] = R1 - CHA = 991 - 139 = 852$
+    \item $R1 + M[100 + 2] = R1 + ABC = 991 + 991 = 1982$
+    \item $R1 - M[101] = R1 - FFH = 991 - 333 = 658$
+    \item $R1 \times M[101 - 1] = R1 \times 200 = 991 \times 200 = 198200$
+\end{enumerate}
+\end{latin}
+دقت کنید در قسمت
+g
+بعد از اتمام عملیات به
+$R6$
+یکی زیاد می‌شود.

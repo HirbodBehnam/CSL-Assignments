@@ -1,6 +1,6 @@
 .text
 	addi $a1, $zero, 12345
-	addi $a0, $zero, 54321
+	addi $a0, $zero, -4321
 	jal min
 	add $a0, $zero, $v0
 	addi $v0, $zero, 1

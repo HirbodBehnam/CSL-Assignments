@@ -1,4 +1,5 @@
 .text
+	addi $s0, $zero, 1026
 	# We shift the s0 until it is zero
 	addi $s1, $zero, -1 # Initial value
 LOOP:

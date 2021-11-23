@@ -25,3 +25,6 @@ REVERSE_LOOP:
 	
 REVERSE_END:
 	jr $ra
+	
+.data
+.space 40

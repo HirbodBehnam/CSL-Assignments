@@ -1,4 +1,9 @@
 .text
+	jal FUNCTION
+	jal FUNCTION
+	jal FUNCTION
+	addi $v0, $zero, 10
+	syscall
 
 FUNCTION:
 FUNCTION_INIT_A:

@@ -1,0 +1,66 @@
+\smalltitle{سوال 2}\\
+\emph{mult}:
+از آنجا که این دستور مقادیر هر دو رجیستر
+$\$s0$
+,
+$\$s1$
+ را به عنوان ورودی می‌گیرد، از نوع
+\lr{Register Addressing}
+است.
+دقت کنید که جواب
+\emph{mult}
+در
+$hi$
+و
+$lo$
+می‌رود که آنها
+\lr{Implicit Addressing}
+هستند.
+\\
+\emph{mflo}:
+در انجا
+$\$t4$
+به صورت
+\lr{Register Addressing}
+هستند ولی مبدأ جایی که عدد می‌آید از رجیستر
+$lo$
+است که
+\lr{Implicit Addressing}
+است.
+\\
+\emph{lw}:
+مشخص است که
+$\$s2$
+\lr{Register Addressing}
+است. ولی
+از انجا که در قسمت دوم دستور یک
+offset
+را نیز علاوه بر یک رجیستر دریافت می‌کند که همان
+base
+آدرس ما است، این 
+operand
+از نوع
+\lr{Base Addressing}
+است.
+\\
+\emph{addi}:
+$\$s3$ و $\$t6$
+از نوع
+\lr{Register Addressing}
+هستند.
+از آنجا که یک عدد ثابت داریم در این قسمت از نوع
+\lr{Immediate Addressing}
+است.
+\\
+\emph{jr}:
+از این دستور
+\lr{Register Addressing}
+است چرا که آدرسی که می‌خواهیم به آن برویم در
+$\$ra$
+است.
+\\
+\emph{jal}:
+دقت کنید که عملا این دستور
+\lr{psuedo memory direct}
+است. چرا که ما نمی‌توانیم از هر جای برنامه به هر جا بپریم به خاطر محدودیت‌های
+MIPS.

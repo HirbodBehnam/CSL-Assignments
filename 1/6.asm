@@ -1,5 +1,5 @@
 .text
-	addi $a0, $zero, 20
+	addi $a0, $zero, 100
 	jal DIVISORS
 	add $t0, $zero, $v0
 	# Print first 3 divisors
