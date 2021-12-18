@@ -1,0 +1,45 @@
+\smalltitle{سوال 2}
+
+\noindent
+\textbf{الف)}
+\begin{latin}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    Instruction-Register Transfer & DA & AA & BA & MB & FS & MD & RW\\
+    \hline
+    R[0] $\leftarrow$ R[1] and R[2] & 000 & 001 & 010 & 0 & 1000 & 0 & 1\\
+    \hline
+    R[3] $\leftarrow$ M[R[4]] & 011 & XXX & XXX & X & XXXX & 1 & 1\\
+    \hline
+    M[R[5]] $\leftarrow$ R[6] & XXX & XXX & 110 & 0 & XXXX & X & 0\\
+    \hline
+    R[7] $\leftarrow$ R[7] - 12 & 111 & 111 & XXX & 1 & 0101 & 0 & 1\\
+    \hline
+    R[0] $\leftarrow$ sr R[1] & 0 & XXX & 001 & 0 & 1101 & 0 & 1\\
+    \hline
+\end{tabular}
+\end{center}
+\end{latin}
+
+\noindent
+\textbf{ب)}
+\begin{latin}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Instruction-Register Transfer & Opcode & DR & SA & SB or Operand\\
+    \hline
+    R[0] $\leftarrow$ R[1] + R[2] & 0000010 & R[0] & R[1] & R[2]\\
+    \hline
+    R[3] $\leftarrow$ R[4] + 1 & 1000010 & R[3] & R[4] & 1\\
+    \hline
+    R[5] $\leftarrow$ sl R[6] & 0001110 & R[5] & - & R[6]\\
+    \hline
+    R[7] $\leftarrow$ not R[7] & 0001011 & R[7] & R[7] & -\\
+    \hline
+    R[0] $\leftarrow$ R[0] or R[1] & 0001001 & R[0] & R[0] & R[1]\\
+    \hline
+\end{tabular}
+\end{center}
+\end{latin}
