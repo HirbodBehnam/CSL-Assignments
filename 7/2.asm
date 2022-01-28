@@ -5,6 +5,8 @@ StSeg   ENDS
 DtSeg   Segment
         num DW 0      ; The number to print
         num_buffer DB DUP 7 (?)
+        is_complete_number DB 10,13, 'Your number is complete',10,13,'$'
+        isnot_complete_number DB 10,13, 'Your number is not complete',10,13,'$'
 DtSeg   ENDS
 
 CDSeg   Segment
@@ -12,7 +14,17 @@ CDSeg   Segment
 Start:
         MOV AX,DtSeg    ; set DS to point to the data segment
         MOV DS,AX
-            
+        
+        CALL READ_INPUT
+        MOV AX, num
+        CALL CHECK_COMPLETE_NUMBER
+        MOV DX, OFFSET isnot_complete_number
+        CMP AL, 0
+        JZ CHECK_ALL_NUMBERS
+        MOV DX, OFFSET is_complete_number 
+CHECK_ALL_NUMBERS:
+        MOV AH, 9 ; Print string
+        INT 21H
         MOV AX, 0 ; The counter
 NUMBER_LOOP:
         INC AX ; Increase the counter
@@ -109,5 +121,24 @@ WRITE_BUFFER_LOOP:
         INT 21H
         RET
 WRITE_NUM ENDP
+READ_INPUT PROC NEAR
+READ_INPUT_LOOP:
+        MOV AH, 01H
+        INT 21H ; Read one char
+        CMP AL, 0DH ; Check new line (the end); 0D in ascii = \r
+        JE READ_INPUT_DONE ; The end
+        ; Add the char to number
+        SUB AL, 48 ; Convert char to number
+        MOV BL, AL ; Save the digit
+        MOV AX, num ; Move num to register
+        MOV DX, 10 ; Set DX to 10 for mult
+        MUL DX ; AX *= 10
+        MOV BH, 0 ; We can avoid sign extened because this number is positive and between [0-9]
+        ADD AX, BX ; Add to number
+        MOV num, AX ; Save the num
+        JMP READ_INPUT_LOOP
+READ_INPUT_DONE:        
+        RET
+READ_INPUT ENDP
 CDSeg   ENDS
 END Start
